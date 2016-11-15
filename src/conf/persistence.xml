@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="GerenciadorEmpresasJSFPU">
-<!--      
+
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
   
-        <class>ifsp.pwe.gerenciador.beans.Ocorrencia</class>
-    
+        <class>ifsp.pwe.gerenciador.beans.Ocorrencia</class>    
         <class>ifsp.pwe.gerenciador.beans.ServicoDeEmergencia</class>
         <class>ifsp.pwe.gerenciador.beans.Veiculo</class>
-        <class>ifsp.pwe.gerenciador.beans.OcorrenciaVeiculo</class>-->
+        <class>ifsp.pwe.gerenciador.beans.OcorrenciaVeiculoId</class>
+        <class>ifsp.pwe.gerenciador.beans.ServicoDeEmergencia</class>
         <properties>
             <!-- Configuraações da conexão -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
@@ -33,3 +33,24 @@
         </properties>
     </persistence-unit>
 </persistence>
+
+
+<!--
+hibernate.cfg.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projetoemergencia</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="show_sql">true</property>
+    <mapping class="ifsp.pwe.gerenciador.beans.Ocorrencia"/>
+    <mapping class="ifsp.pwe.gerenciador.beans.Veiculo"/>
+    <mapping class="ifsp.pwe.gerenciador.beans.ServicoDeEmergencia"/>
+    <mapping class="ifsp.pwe.gerenciador.beans.OcorrenciaVeiculo"/>
+    <mapping class="ifsp.pwe.gerenciador.beans.OcorrenciaVeiculoId"/>
+  </session-factory>
+</hibernate-configuration>
+-->

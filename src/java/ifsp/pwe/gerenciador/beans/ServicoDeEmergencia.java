@@ -7,6 +7,7 @@ package ifsp.pwe.gerenciador.beans;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,8 +24,8 @@ import javax.persistence.Table;
 @Table(name = "servicodeemergencia", catalog = "projetoemergencia")
 public class ServicoDeEmergencia implements java.io.Serializable {
 
-    private int idServicoDeEmergencia;
-    private String desccricao;
+    private int idservicodeemergencia;
+    private String descricao;
     private String nome;
 
     private Set<Veiculo> veiculos = new HashSet<Veiculo>(0);
@@ -33,39 +34,40 @@ public class ServicoDeEmergencia implements java.io.Serializable {
      * Relacao de um pra muitos com veiculos
      * @return 
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "veiculo")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "servicodeemergencia")
     public Set<Veiculo> getVeiculos() {
         return this.veiculos;
     }
 
     /**
-     * @return the idServicoDeEmergencia
+     * @return the idservicodeemergencia
      */
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    public int getIdServicoDeEmergencia() {
-        return idServicoDeEmergencia;
+    @Column(name = "idservicodeemergencia", unique = true, nullable = false)
+    public int getIdservicodeemergencia() {
+        return idservicodeemergencia;
     }
 
     /**
-     * @param idServicoDeEmergencia the idServicoDeEmergencia to set
+     * @param idServicoDeEmergencia the idservicodeemergencia to set
      */
-    public void setIdServicoDeEmergencia(int idServicoDeEmergencia) {
-        this.idServicoDeEmergencia = idServicoDeEmergencia;
+    public void setIdservicodeemergencia(int idServicoDeEmergencia) {
+        this.idservicodeemergencia = idServicoDeEmergencia;
     }
 
     /**
-     * @return the desccricao
+     * @return the descricao
      */
-    public String getDesccricao() {
-        return desccricao;
+    public String getDescricao() {
+        return descricao;
     }
 
     /**
-     * @param desccricao the desccricao to set
+     * @param desccricao the descricao to set
      */
-    public void setDesccricao(String desccricao) {
-        this.desccricao = desccricao;
+    public void setDescricao(String desccricao) {
+        this.descricao = desccricao;
     }
 
     /**

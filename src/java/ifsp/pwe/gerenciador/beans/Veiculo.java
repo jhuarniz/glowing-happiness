@@ -5,30 +5,41 @@
  */
 package ifsp.pwe.gerenciador.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author
  */
-public class Veiculo {
+
+@Entity
+@Table(name = "veiculo", catalog = "projetoemergencia")
+public class Veiculo implements java.io.Serializable {
 
     private int idVeiculo = 1;
     private String desccricao;
     private String numeroPlaca;
     private String status;
-    private ServicoDeEmergencia servicoDeEmergencia;
-
+    private ServicoDeEmergencia servicodeemergencia;
+    private Set<OcorrenciaVeiculo> ocorrenciaVeiculos = new HashSet<OcorrenciaVeiculo>(0);
+    
     /**
      * @return the idVeiculo
      */
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "idVeiculo", unique = true, nullable = false)
     public int getIdVeiculo() {
         return idVeiculo;
     }
@@ -86,16 +97,33 @@ public class Veiculo {
      * @return the servicoDeEmergencia
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idServicoDeEmergencia", nullable = false)
-    public ServicoDeEmergencia getServicoDeEmergencia() {
-        return servicoDeEmergencia;
+    @JoinColumn(name = "idservicodeemergencia", nullable = false)
+    public ServicoDeEmergencia getServicodeemergencia() {
+        return servicodeemergencia;
     }
 
     /**
      * @param servicoDeEmergencia the servicoDeEmergencia to set
      */
-    public void setServicoDeEmergencia(ServicoDeEmergencia servicoDeEmergencia) {
-        this.servicoDeEmergencia = servicoDeEmergencia;
+    public void setServicodeemergencia(ServicoDeEmergencia servicoDeEmergencia) {
+        this.servicodeemergencia = servicoDeEmergencia;
     }
+    
+    
+    /**
+     * @return the ocorrenciaVeiculos
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.veiculo")
+    public Set<OcorrenciaVeiculo> getOcorrenciaVeiculos() {
+        return ocorrenciaVeiculos;
+    }
+
+    /**
+     * @param ocorrenciaVeiculos the ocorrenciaVeiculos to set
+     */
+    public void setOcorrenciaVeiculos(Set<OcorrenciaVeiculo> ocorrenciaVeiculos) {
+        this.ocorrenciaVeiculos = ocorrenciaVeiculos;
+    }
+
 
 }

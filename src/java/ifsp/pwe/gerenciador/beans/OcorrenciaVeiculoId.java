@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  * @author 
  */
 @Embeddable
-public class OcorrenciaVeiculoId {
+public class OcorrenciaVeiculoId implements java.io.Serializable  {
     private Ocorrencia ocorrencia;
     private Veiculo veiculo;
 

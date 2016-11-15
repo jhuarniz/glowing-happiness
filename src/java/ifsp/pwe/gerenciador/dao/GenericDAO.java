@@ -38,5 +38,5 @@ public class GenericDAO<T> {
         em.close();
         return lista;
     }
-
+    
 }

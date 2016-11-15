@@ -8,6 +8,7 @@ package ifsp.pwe.gerenciador.beans;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,8 +16,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -33,7 +32,7 @@ public class Ocorrencia implements java.io.Serializable {
     private String prioridade;
     private String tipo;
     private String status;
-    private Date data;
+    private Date dataHora;
     private String endereco;
 
     private Set<OcorrenciaVeiculo> ocorrenciaVeiculos = new HashSet<OcorrenciaVeiculo>(0);
@@ -43,6 +42,7 @@ public class Ocorrencia implements java.io.Serializable {
      */
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "idOcorrencia", unique = true, nullable = false)
     public int getIdOcorrencia() {
         return idOcorrencia;
     }
@@ -139,17 +139,17 @@ public class Ocorrencia implements java.io.Serializable {
     }
 
     /**
-     * @return the data
+     * @return the dataHora
      */
-    public Date getData() {
-        return data;
+    public Date getDataHora() {
+        return dataHora;
     }
 
     /**
-     * @param data the data to set
+     * @param data the dataHora to set
      */
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataHora(Date data) {
+        this.dataHora = data;
     }
 
     /**
@@ -169,8 +169,7 @@ public class Ocorrencia implements java.io.Serializable {
     /**
      * @return the ocorrenciaVeiculos
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.ocorrencia")    
-    @Cascade({CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.ocorrencia")
     public Set<OcorrenciaVeiculo> getOcorrenciaVeiculos() {
         return ocorrenciaVeiculos;
     }
