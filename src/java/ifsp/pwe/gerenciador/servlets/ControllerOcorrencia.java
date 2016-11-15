@@ -6,14 +6,10 @@
 package ifsp.pwe.gerenciador.servlets;
 
 import ifsp.pwe.gerenciador.beans.Ocorrencia;
-import ifsp.pwe.gerenciador.beans.ServicoDeEmergencia;
-import ifsp.pwe.gerenciador.beans.Veiculo;
-import ifsp.pwe.gerenciador.dao.GenericDAO;
 import ifsp.pwe.gerenciador.dao.OcorrenciaDAO;
-import ifsp.pwe.gerenciador.dao.ServicoDeEmergenciaDAO;
-import java.sql.SQLException;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -61,21 +57,11 @@ public class ControllerOcorrencia {
         u.setPrioridade(prioridadeParameter);
         u.setTipo(tipoParameter);
         u.setStatus("ANDAMENTO");
-        
-        
-        
-        
-          
-        
         try {
             OcorrenciaDAO dao = new OcorrenciaDAO();
-
-//            //IMPORTANTE: Adicionamos o ID da instituicao logada no sistema e colocamos como atributo do objeto curso.
-//            Instituicao instituicaoLogado = (Instituicao) req.getSession().getAttribute("usuarioLogado"); //Fazendo cast do objeto em sessao deve ser um objeto da classe Instituicao
-//            int idInstituicaoLogada = instituicaoLogado.getId();
-            
-            //Adicionamos o usuario na BD.
-            dao.adiciona(u);
+            List<Integer> idVeiculos= new ArrayList<>();
+            idVeiculos.add(1);
+            dao.adiciona(u, idVeiculos);
 
         } catch (Exception ex) {
             ex.printStackTrace();

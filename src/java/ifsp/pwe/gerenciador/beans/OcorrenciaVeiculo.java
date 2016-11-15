@@ -55,11 +55,17 @@ public class OcorrenciaVeiculo implements java.io.Serializable {
     public Veiculo getVeiculo() {
         return getPk().getVeiculo();
     }
-
+    public void setVeiculo(Veiculo veiculo) {
+        getPk().setVeiculo(veiculo);
+    }
     
     @Transient
     public Ocorrencia getOcorrencia() {
         return getPk().getOcorrencia();
+    }
+    
+    public void setOcorrencia(Ocorrencia ocorrencia) {
+        getPk().setOcorrencia(ocorrencia);
     }
  
     

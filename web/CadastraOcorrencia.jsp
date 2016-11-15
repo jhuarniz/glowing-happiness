@@ -42,14 +42,14 @@
 
                 <div class="input-group">
                     <label for="Nome">Nome:</label>
-                    <input type="text" name="nome" class="form-control" placeholder="Nome" >
+                    <input type="text" name="nomeContato" class="form-control" placeholder="Nome" >
 
                 </div>
                 <br>
 
                 <div class="input-group">
                     <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" class="form-control" placeholder="Telefone" >
+                    <input type="text" name="telefoneContato" class="form-control" placeholder="Telefone" >
 
                 </div>
                 <br>

@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * ESta classe precisa ser criada para manter uma chave composta
+ * ESta classe representa a chave composta da tabela OcorrenciaVeiculo
  * @author 
  */
 @Embeddable

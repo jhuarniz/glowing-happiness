@@ -8,6 +8,7 @@ package ifsp.pwe.gerenciador.beans;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -169,7 +170,7 @@ public class Ocorrencia implements java.io.Serializable {
     /**
      * @return the ocorrenciaVeiculos
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.ocorrencia")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.ocorrencia", cascade={CascadeType.REFRESH, CascadeType.PERSIST,CascadeType.MERGE })
     public Set<OcorrenciaVeiculo> getOcorrenciaVeiculos() {
         return ocorrenciaVeiculos;
     }
