@@ -5,7 +5,8 @@
     <div class="panel-heading">
         <h4>Ocorrencias em andamento</h4>
     </div>
-    <div class="panel-body"><table class="table table-bordered">
+    <div class="panel-body">
+        <table class="table table-bordered">
             <tr>
                 <th>Id</th>
                 <th>Tipo</th>
@@ -18,7 +19,21 @@
                     <td>${ocorrencia.idOcorrencia}</td>
                     <td>${ocorrencia.tipo}</td>
                     <td>${ocorrencia.dataHora}</td>
-                    <td>${ocorrencia.idOcorrencia}</td>
+                    <td>
+                        <form action="Executa" method="POST">
+                            <input type="submit" value="Finalizar!">
+                            <input type="hidden" name="classe" value="ControllerOcorrencia">
+                            <input type="hidden" name="metodo" value="finalizarOcorrencia">
+                            <input type="hidden" name="idOcorrencia" value="${ocorrencia.idOcorrencia}">    
+                        </form>
+                        
+                        <form action="Executa" method="POST">
+                            <input type="submit" value="Ver detalhe (TESTE)!">
+                            <input type="hidden" name="classe" value="ControllerOcorrencia">
+                            <input type="hidden" name="metodo" value="verDetalhe">
+                            <input type="hidden" name="idOcorrencia" value="${ocorrencia.idOcorrencia}">    
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
 

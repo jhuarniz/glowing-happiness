@@ -1,16 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:import url = "../usuario/header.jsp" />
-
+<c:import url = "../usuario/header.jsp" /> 
 <div class="jumbotron">
     <h1>Cadastro de Ocorrencia # ${ocorrencia.idOcorrencia}</h1>
     <p>
         Ocorrencia registrada efetuado com sucesso, socorro a caminho.<br>
-        Para finalizar ir na opcao de Ocorrencia de em andamento.
+        Para finalizar ir na opcao de <a href="Executa?classe=ControllerOcorrencia&metodo=verListaEmAndamento"> Ocorrencia de em andamento.</a>
     </p>
 </div>
-<br/>
-
-<br/>
-<a href="javascript:window.history.go(-1)">Clique aqui</a> para retornar à página anterior
+<br/> 
 
 <c:import url = "../usuario/footer.jsp" />

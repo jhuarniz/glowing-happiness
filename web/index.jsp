@@ -30,7 +30,9 @@
     <br>
 
     <br>
-    <a class="btn-primary btn-lg" href="Executa?classe=ControllerOcorrencia&metodo=verCadastro">Cadastro de usuarios</a> 
+    <a class="btn-primary btn-lg" href="Executa?classe=ControllerUsuario&metodo=home">Home de usuarios</a> 
+    <br>
+    <br>
     <br>
 </form> 
 
