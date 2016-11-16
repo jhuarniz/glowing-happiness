@@ -7,7 +7,12 @@ package ifsp.pwe.gerenciador.dao;
 
 import ifsp.pwe.gerenciador.beans.Veiculo;
 import java.sql.SQLException;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -35,6 +40,18 @@ public class VeiculoDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
         return sde;
+    }
+    public List<Veiculo> listaVeiculosDisponiveis() { 
+        //SELECT * FROM veiculo WHERE status = ''
+          
+        List<Veiculo> lista = 
+                (List<Veiculo>)
+                entityManager.createQuery("SELECT * FROM veiculo WHERE status = :status") //criando a query                
+                .setParameter("status", "LIVRE") //definindo o parametro
+                .getResultList();//obtendo o resultado
+        
+        entityManager.close();
+        return lista;
     }
     
 

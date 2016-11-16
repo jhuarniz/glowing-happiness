@@ -170,7 +170,7 @@ public class Ocorrencia implements java.io.Serializable {
     /**
      * @return the ocorrenciaVeiculos
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.ocorrencia", cascade={CascadeType.REFRESH, CascadeType.PERSIST,CascadeType.MERGE })
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pk.ocorrencia", cascade={CascadeType.REFRESH, CascadeType.PERSIST,CascadeType.MERGE })
     public Set<OcorrenciaVeiculo> getOcorrenciaVeiculos() {
         return ocorrenciaVeiculos;
     }
